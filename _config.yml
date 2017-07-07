@@ -14,4 +14,9 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
+title: DavidBol.es
 description: The index of David Boles' work.
+keywords: [david, boles, blog, portfolio]
+author: David Boles
+
+exclude: [build.log]
