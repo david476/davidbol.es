@@ -1,0 +1,16 @@
+/*Header changes*/
+@media screen and (min-width: 1025px) {
+  #main_header .mdl-layout__drawer-button {
+    display: none;
+  }
+
+  #main_header .mdl-layout__header-row {
+    padding-left: 40px;
+  }
+}
+
+#main_header a.mdl-js-ripple-effect { position: relative; }
+
+#main_header .mdl-navigation__link.active {
+  background-color: #37474F;
+}
