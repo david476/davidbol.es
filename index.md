@@ -4,7 +4,7 @@
 # See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 layout: base
 ---
-This is the front page!
+This is the front page!!!
 <!-- Accent-colored raised button with ripple -->
 <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
   Button
