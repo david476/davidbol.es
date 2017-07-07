@@ -19,4 +19,4 @@ description: The index of David Boles' work.
 keywords: [david, boles, blog, portfolio]
 author: David Boles
 
-exclude: [build.log]
+keep_files: [build.log]
