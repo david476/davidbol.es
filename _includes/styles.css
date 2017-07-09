@@ -1,3 +1,6 @@
+/*General*/
+button:focus {outline:0;}
+
 /*Header changes*/
 @media screen and (min-width: 1025px) {
   #main_header .mdl-layout__drawer-button {
@@ -18,4 +21,8 @@
 /*Footer changes*/
 .mdl-mini-footer--link-list a, .mdl-mini-footer__link-list a {
     text-decoration: underline;
+}
+
+#footer button.mdl-js-ripple-effect {
+  position: relative;
 }
