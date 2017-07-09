@@ -14,3 +14,8 @@
 #main_header .mdl-navigation__link.active {
   background-color: #37474F;
 }
+
+/*Footer changes*/
+.mdl-mini-footer--link-list a, .mdl-mini-footer__link-list a {
+    text-decoration: underline;
+}
