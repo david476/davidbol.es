@@ -14,9 +14,29 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
+# My info
 title: DavidBol.es
 description: The index of David Boles' work.
-keywords: [david, boles, blog, portfolio]
+keywords: [david, boles]
 author: David Boles
 
+# Site setup
+collections:
+  portfolio:
+    output: true
+defaults:
+  - scope:
+      path: ""
+      type: portfolio
+    values:
+      layout: portfolio
+      image: featured.jpg
+
+# Build settings
+markdown: kramdown
+gems:
+  - jekyll-feed
+exclude:
+  - Gemfile
+  - Gemfile.lock
 keep_files: [build.log]
