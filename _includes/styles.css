@@ -26,3 +26,23 @@ button:focus {outline:0;}
 #footer button.mdl-js-ripple-effect {
   position: relative;
 }
+
+/*Feature cards*/
+.feature.mdl-card {
+  width: 100%;
+}
+.feature > .mdl-card__title {
+  color: #fff;
+  height: 176px;
+  padding: 0;
+}
+
+.feature > .mdl-card__title > .mdl-card__title-text {
+  padding: 16px;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.feature > .mdl-card__menu {
+  color: #fff;
+}

@@ -30,7 +30,8 @@ defaults:
       type: portfolio
     values:
       layout: portfolio
-      image: featured.jpg
+      collection: portfolio
+      image: ../assets/:collection/:name/featured.png
 
 # Build settings
 markdown: kramdown
