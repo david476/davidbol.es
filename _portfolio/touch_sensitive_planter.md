@@ -1,5 +1,6 @@
 ---
 title: Touch Sensitive Planter
+description: A plant that talks when you touch it!
 tags: [electronics, laser cutting, arduino]
 ---
 # Intro
