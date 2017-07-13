@@ -41,7 +41,7 @@ defaults:
       type: portfolio-tags
     values:
       layout: tag
-      permalink: /portfolio/tags/:name
+      permalink: /portfolio/tags/:name.html
 
 # Build settings
 markdown: kramdown
