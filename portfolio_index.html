@@ -17,7 +17,7 @@ permalink: /portfolio/
 
   <div class="mdl-tabs__panel" id="tags-panel">
     {% for tag in site.portfolio-tags %}
-    <button class="mdl-chip tag-list">
+    <button class="mdl-chip tag-big">
       <span class="mdl-chip__text" onClick="location.href='{{ tag.url }}'"><h4 style="margin: 0;">{{ tag.name }}</h4></span>
     </button>
     {% endfor %}

@@ -1,19 +1,4 @@
-.mdl-chip.tag-title {
-  height: 128px;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
-  line-height: 128px;
-  padding: 0 48px;
-  border: 0;
-  border-radius: 64px;
-  background-color: #dedede;
-  display: inline-block;
-  color: rgba(0,0,0,.87);
-  margin: 8px 0;
-  font-size: 0;
-  white-space: nowrap;
-}
-
-.mdl-chip.tag-list {
+.mdl-chip.tag-big {
   height: 64px;
   font-family: "Roboto","Helvetica","Arial",sans-serif;
   line-height: 64px;
