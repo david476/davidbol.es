@@ -1,0 +1,16 @@
+---
+layout: default
+---
+<h1>{{ page.title }}</h1>
+
+{% for tag in site.portfolio-tags %}
+  {% if page.tags contains tag.name %}
+    <button class="mdl-chip">
+      <span class="mdl-chip__text" onClick="location.href='{{ tag.url }}'">{{ tag.name }}</span>
+    </button>
+  {% endif %}
+{% endfor %}
+
+<hr>
+
+{{ content }}

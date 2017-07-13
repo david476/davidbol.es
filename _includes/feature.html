@@ -1,6 +1,6 @@
 <div class="feature mdl-card mdl-shadow--2dp">
-  <div class="mdl-card__title" style="background: url('../assets/{{ include.item.path | remove_first: "_" }}/featured.jpg') center / cover;">
-    <h2 class="mdl-card__title-text">{{ include.item.title }}</h2>
+  <div class="mdl-card__title" style="background: url('/assets/{{ include.item.path | remove_first: "_" }}/featured.jpg') center / cover;">
+    <h2 class="mdl-card__title-text" href="/">{{ include.item.title }}</h2>
   </div>
 
   {% if include.item.description %}

@@ -24,14 +24,24 @@ author: David Boles
 collections:
   portfolio:
     output: true
+  portfolio-tags:
+    output: true
 defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
   - scope:
       path: ""
       type: portfolio
     values:
-      layout: portfolio
-      collection: portfolio
-      image: ../assets/:collection/:name/featured.png
+      layout: page
+  - scope:
+      path: ""
+      type: portfolio-tags
+    values:
+      layout: tag
+      permalink: /portfolio/tags/:name
 
 # Build settings
 markdown: kramdown

@@ -1,9 +1,25 @@
 ---
-layout: base
 permalink: /portfolio/
 ---
-<div class="mdl-grid">
-  {% for item in site.portfolio %}
-  <div class="mdl-cell mdl-cell--4-col">{% include feature.html item=item %}</div>
-  {% endfor %}
+<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+  <div class="mdl-tabs__tab-bar">
+      <a href="#all-panel" class="mdl-tabs__tab is-active" style="width:45vw;">All</a>
+      <a href="#tags-panel" class="mdl-tabs__tab" style="width:45vw;">Tags</a>
+  </div>
+
+  <div class="mdl-tabs__panel is-active" id="all-panel">
+    <div class="mdl-grid">
+      {% for item in site.portfolio %}
+      <div class="mdl-cell mdl-cell--4-col">{% include feature.html item=item %}</div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="mdl-tabs__panel" id="tags-panel">
+    {% for tag in site.portfolio-tags %}
+    <button class="mdl-chip tag-list">
+      <span class="mdl-chip__text" onClick="location.href='{{ tag.url }}'"><h4 style="margin: 0;">{{ tag.name }}</h4></span>
+    </button>
+    {% endfor %}
+  </div>
 </div>

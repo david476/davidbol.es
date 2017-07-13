@@ -1,0 +1,7 @@
+.mdl-mini-footer--link-list a, .mdl-mini-footer__link-list a {
+    text-decoration: underline;
+}
+
+#footer button.mdl-js-ripple-effect {
+  position: relative;
+}
