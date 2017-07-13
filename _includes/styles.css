@@ -17,7 +17,7 @@ button:focus {outline:0;}
 
 /*Tab fixes*/
 .mdl-tabs > .mdl-tabs__panel:not(.is-active) {
-  display: none;
+  display: none !important;
 }
 
 /*Tags*/
