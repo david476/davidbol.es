@@ -15,5 +15,10 @@ button:focus {outline:0;}
 /*Feature cards*/
 {% include css/feature.css %}
 
+/*Tab fixes*/
+.mdl-tabs > .mdl-tabs__panel:not(.is-active) {
+  display: none;
+}
+
 /*Tags*/
 {% include css/tag.css %}

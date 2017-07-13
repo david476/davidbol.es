@@ -15,8 +15,6 @@ permalink: /portfolio/
     </div>
   </div>
 
-  <style id="port_tag_hider">#tags-panel{display:none;}</style>
-
   <div class="mdl-tabs__panel" id="tags-panel">
     {% for tag in site.portfolio-tags %}
     <button class="mdl-chip tag-big">
@@ -24,10 +22,4 @@ permalink: /portfolio/
     </button>
     {% endfor %}
   </div>
-
-  <script>document.addEventListener("DOMContentLoaded", function (event) {
-    setTimeout(function (e) {
-      document.getElementById("port_tag_hider").remove();
-    }, 500);
-  });</script>
 </div>
