@@ -35,7 +35,7 @@ defaults:
       path: ""
       type: portfolio
     values:
-      layout: portfolio_item
+      layout: portfolio_item/base
   - scope:
       path: ""
       type: portfolio-tags

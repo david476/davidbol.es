@@ -1,0 +1,12 @@
+---
+layout: portfolio_item/base
+---
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+    <div class="feature mdl-card mdl-shadow--2dp" style="min-height:0; height: 0; padding-top: 100%; background: url('/assets/{{ page.path | remove_first: "_" }}/featured.jpg') center / cover;"></div>
+  </div>
+
+  <div class="mdl-cell mdl-cell--9-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+    {{ content }}
+  </div>
+</div>
