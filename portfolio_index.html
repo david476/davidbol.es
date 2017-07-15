@@ -10,14 +10,14 @@ permalink: /portfolio/
   <div class="mdl-tabs__panel is-active" id="all-panel">
     <div class="mdl-grid">
       {% for item in site.portfolio %}
-      <div class="mdl-cell mdl-cell--4-col">{% include feature.html item=item %}</div>
+      <div class="mdl-cell mdl-cell--4-col">{% include feature/feature.html item=item %}</div>
       {% endfor %}
     </div>
   </div>
 
   <div class="mdl-tabs__panel" id="tags-panel">
     {% for tag in site.portfolio-tags %}
-    <button class="mdl-chip tag-big">
+    <button class="mdl-chip big">
       <span class="mdl-chip__text" onClick="location.href='{{ tag.url }}'"><h4 style="margin: 0;">{{ tag.name }}</h4></span>
     </button>
     {% endfor %}

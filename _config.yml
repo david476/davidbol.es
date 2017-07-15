@@ -35,12 +35,12 @@ defaults:
       path: ""
       type: portfolio
     values:
-      layout: page
+      layout: portfolio_item
   - scope:
       path: ""
       type: portfolio-tags
     values:
-      layout: tag
+      layout: portfolio_tag
       permalink: /portfolio/tags/:name.html
 
 # Build settings
