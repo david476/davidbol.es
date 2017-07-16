@@ -1,8 +1,4 @@
-@media screen and (min-width: 1025px) {
-  #main_header .mdl-layout__drawer-button {
-    display: none;
-  }
-
+@media screen and (min-width: 1025px) {  
   #main_header .mdl-layout__header-row {
     padding-left: 40px;
   }
