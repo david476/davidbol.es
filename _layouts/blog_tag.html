@@ -7,9 +7,9 @@ layout: default
 {{ content }}
 <hr>
 <div class="mdl-grid">
-  {% for item in site.portfolio %}
+  {% for item in site.posts %}
     {% if item.tags contains page.name %}
-    <div class="mdl-cell mdl-cell--4-col">{% include features/portfolio.html item=item %}</div>
+    <div class="mdl-cell mdl-cell--4-col">{% include feature/feature.html item=item %}</div>
     {% endif %}
   {% endfor %}
 </div>

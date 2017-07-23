@@ -9,7 +9,7 @@
       <a class="mdl-navigation__link mdl-js-button mdl-js-ripple-effect{% if page.url == "/" %} active{% endif %}" href="/">Home</a>
       <a class="mdl-navigation__link mdl-js-button mdl-js-ripple-effect{% if page.url == "/about/" %} active{% endif %}" href="/about/">About</a>
       <a class="mdl-navigation__link mdl-js-button mdl-js-ripple-effect{% if page.url contains "/portfolio/" %} active{% endif %}" href="/portfolio/">Portfolio</a>
-      <a class="mdl-navigation__link mdl-js-button mdl-js-ripple-effect" href="">Blog</a>
+      <a class="mdl-navigation__link mdl-js-button mdl-js-ripple-effect{% if page.url contains "/blog/" %} active{% endif %}" href="/blog/">Blog</a>
     </nav>
   </div>
 </header>
@@ -19,6 +19,6 @@
     <a class="mdl-navigation__link" href="/">Home</a>
     <a class="mdl-navigation__link" href="/about/">About</a>
     <a class="mdl-navigation__link" href="/portfolio/">Portfolio</a>
-    <a class="mdl-navigation__link" href="">Blog</a>
+    <a class="mdl-navigation__link" href="/blog/">Blog</a>
   </nav>
 </div>

@@ -26,7 +26,7 @@ button:focus {outline:0;}
 {% include footer/footer.css %}
 
 /*Feature cards*/
-{% include feature/feature.css %}
+{% include features/portfolio.css %}
 
 /*Tab fixes*/
 .mdl-tabs > .mdl-tabs__panel:not(.is-active) {

@@ -22,6 +22,8 @@ author: David Boles
 
 # Site setup
 collections:
+  blog-tags:
+    output: true
   portfolio:
     output: true
   portfolio-tags:
@@ -33,15 +35,28 @@ defaults:
       layout: default
   - scope:
       path: ""
+      type: posts
+    values:
+      layout: post/base
+      permalink: /blog/:year/:month/:title
+  - scope:
+      path: ""
+      type: blog-tags
+    values:
+      layout: blog_tag
+      permalink: /blog/tags/:name
+  - scope:
+      path: ""
       type: portfolio
     values:
       layout: portfolio_item/base
+      permalink: /portfolio/:name
   - scope:
       path: ""
       type: portfolio-tags
     values:
       layout: portfolio_tag
-      permalink: /portfolio/tags/:name.html
+      permalink: /portfolio/tags/:name
 
 # Build settings
 markdown: kramdown
