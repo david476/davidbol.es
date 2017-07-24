@@ -4,6 +4,7 @@ title: Touch Sensitive Planter
 description: A plant(er) that talks when you touch it!
 tags: [electronics, laser cutting, arduino]
 images: [featured.jpg, CAD.png, CAD_exploded.png, base.jpg, acrylic_cement.jpg, electronics.jpg]
+home: true
 ---
 ## Intro
 This project was originally conceived of during the walk back from a trip to OSH for my gardening [Design Lab](http://www.designtechhighschool.org/about/curriculum/designadvisory). We had to build a planter for the class, but I decided to spice it up a little. At the time I had been playing around with simple Arduino capacitive touch sensors and I figured that plants might be conductive enough to act as one. Add some lights and sounds and you get a touch sensitive planter! At the moment it pulses colors in relation to how close you are and says a sassy remark if you touch it.
