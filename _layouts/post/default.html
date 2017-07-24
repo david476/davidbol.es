@@ -1,0 +1,17 @@
+---
+layout: default
+---
+<h1 style="margin-bottom: 0;">{{ page.title }}</h1>
+<h6 style="margin-top: 0; color: rgba(0, 0, 0, 0.54);">{{ page.date | date: "%B %-d, %Y" }}</h6>
+
+{% for tag in site.blog-tags %}
+  {% if page.tags contains tag.name %}
+    <button class="mdl-chip">
+      <span class="mdl-chip__text" onClick="location.href='{{ tag.url }}'">{{ tag.name }}</span>
+    </button>
+  {% endif %}
+{% endfor %}
+
+<hr>
+
+{{ content }}

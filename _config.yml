@@ -37,7 +37,7 @@ defaults:
       path: ""
       type: posts
     values:
-      layout: post/base
+      layout: post/default
       permalink: /blog/:year/:month/:title
   - scope:
       path: ""
@@ -49,7 +49,7 @@ defaults:
       path: ""
       type: portfolio
     values:
-      layout: portfolio_item/base
+      layout: portfolio_item/default
       permalink: /portfolio/:name
   - scope:
       path: ""

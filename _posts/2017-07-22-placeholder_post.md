@@ -1,5 +1,6 @@
 ---
 title: Placeholder Post
+tags: [ programming ]
 ---
 This is a placeholder post!
 
