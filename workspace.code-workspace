@@ -1,0 +1,11 @@
+{
+  "settings": {
+    "window.title": "davidbol.es${separator}${dirty}${activeEditorShort}",
+    "eslint.autoFixOnSave": true
+  },
+  "folders": [
+    {
+      "path": "."
+    }
+  ]
+}
