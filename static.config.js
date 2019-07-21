@@ -32,5 +32,8 @@ export default {
     ],
     require.resolve('react-static-plugin-reach-router'),
     require.resolve('react-static-plugin-sitemap'),
+    // CUSTOM
+    require.resolve('react-static-plugin-mdx'),
+    'jss'
   ],
 }
