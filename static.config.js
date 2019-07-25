@@ -37,3 +37,5 @@ export default {
     'jss'
   ],
 }
+
+console.log(require.resolve('react-jss'))
