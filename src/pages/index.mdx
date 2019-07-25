@@ -1,0 +1,43 @@
+import { useRef } from 'react';
+import { createUseStyles } from 'react-jss';
+
+export const meta = {
+  title: `Hi! I'm David.`,
+  headTitle: 'About'
+}
+
+export const Resume = (() => {
+  const useStyles = createUseStyles(theme => ({
+    containerClass: {
+      width: '100%',
+      paddingTop: `calc(${100 * 11 / 8.5}% + 12px)`,
+      position: 'relative',
+      marginTop: theme.sizing(8),
+      marginBottom: theme.sizing(8),
+    },
+    imgClass: {
+      position: 'absolute',
+      width: '100%',
+      height: '100%',
+      top: 0,
+      right: 0,
+      bottom: 0,
+      left: 0,
+      boxShadow: [0, 0, theme.sizing(1), theme.colors.navigation.backgroundColor],
+    },
+  }))
+  return () => {
+    const {containerClass, imgClass} = useStyles()
+    return (
+      <div className={containerClass}>
+        <a href='/resume.pdf'>
+          <img src='/resume.png' className={imgClass}/>
+        </a>
+      </div>
+    )
+  }
+})();
+
+If you want to see details about projects that I've worked on, see <Link to='/portfolio'>my portfolio</Link>. For an overview, here's my resume:
+
+<Resume/>

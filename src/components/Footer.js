@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from '@reach/router';
 import { createUseStyles } from 'react-jss';
+import { EmailIcon, GitHubIcon, LinkedInIcon } from './social_icons';
 
 const useStyles = createUseStyles(theme => ({
   container: {
@@ -11,9 +12,9 @@ const useStyles = createUseStyles(theme => ({
     ...theme.colors.navigation,
     ...theme.sizing.footer
   },
-  logo: {
-    width: theme.sizing.footer.height * 0.666,
-    height: theme.sizing.footer.height * 0.666,
+  icon: {
+    width: theme.sizing.footer.height * 2 / 3,
+    height: theme.sizing.footer.height * 2 / 3,
   },
   link: {
     height: '100%',
@@ -32,11 +33,17 @@ const useStyles = createUseStyles(theme => ({
 }))
 
 export default function Footer(props) {
-  const {container, logo, link, pad, filler} = useStyles()
+  const {container, icon, link, pad, filler} = useStyles()
 
   return (
     <nav className={container}>
-      
+      <a href="https://github.com/david476/davidbol.es/issues" className={link} target="_blank" rel="noopener noreferrer">See a problem?</a>
+      <div className={filler}/>
+      <a href='mailto:me@davidbol.es'className={link}><EmailIcon className={icon}/></a>
+      <div className={pad}/>
+      <a href='https://github.com/david-boles/'className={link} target="_blank" rel="noopener noreferrer"><GitHubIcon className={icon}/></a>
+      <div className={pad}/>
+      <a href='https://www.linkedin.com/in/david-b-1a4372133/'className={link} target="_blank" rel="noopener noreferrer"><LinkedInIcon className={icon}/></a>
     </nav>
   )
 }

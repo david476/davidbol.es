@@ -12,8 +12,8 @@ const useStyles = createUseStyles(theme => ({
     ...theme.sizing.navbar
   },
   logo: {
-    width: theme.sizing.navbar.height * 0.666,
-    height: theme.sizing.navbar.height * 0.666,
+    width: theme.sizing.navbar.height * 2 / 3,
+    height: theme.sizing.navbar.height * 2 / 3,
   },
   link: {
     height: '100%',
@@ -37,16 +37,14 @@ export default function NavBar(props) {
   return (
     <nav className={container}>
       <Link to="/" className={link}>
-        <img src='/logo.svg' xmlns="http://www.w3.org/2000/svg" className={logo}/>
+        <img src='/logo.svg' xmlns='http://www.w3.org/2000/svg' alt='' className={logo}/>
         <div className={pad}/>
         David Boles
       </Link>
       <div className={filler}/>
-      <Link to="/about" className={link}>About</Link>
+      <Link to="/" className={link}>About</Link>
       <div className={pad}/>
       <Link to="/portfolio" className={link}>Portfolio</Link>
-      <div className={pad}/>
-      <Link to="/blog" className={link}>Blog</Link>
     </nav>
   )
 }

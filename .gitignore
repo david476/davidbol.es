@@ -3,6 +3,9 @@ artifacts/
 dist/
 tmp/
 
+# --- CUSTOM (JSS) ---
+react-jss/
+
 # --- COPIED FROM https://github.com/github/gitignore/blob/master/Node.gitignore ---
 # Logs
 logs
