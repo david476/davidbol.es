@@ -19,7 +19,11 @@
     "react-static-plugin-mdx": "^7.1.0",
     "react-static-plugin-reach-router": "^7.0.0",
     "react-static-plugin-sitemap": "^7.0.0",
-    "react-static-plugin-source-filesystem": "^7.0.0"
+    "react-static-plugin-source-filesystem": "^7.0.0",
+    "typeface-lato": "0.0.75",
+    "typeface-raleway": "0.0.75",
+    "typeface-roboto-slab": "0.0.72",
+    "typeface-ubuntu-mono": "0.0.72"
   },
   "devDependencies": {
     "babel-eslint": "9.x",
