@@ -30,7 +30,7 @@ export const Resume = (() => {
     const {containerClass, imgClass} = useStyles()
     return (
       <div className={containerClass}>
-        <a href='/resume.pdf'>
+        <a href='/resume.pdf' target="_blank" rel="noopener noreferrer">
           <img src='/resume.png' className={imgClass}/>
         </a>
       </div>
@@ -38,6 +38,6 @@ export const Resume = (() => {
   }
 })();
 
-If you want to see details about projects that I've worked on, see <Link to='/portfolio'>my portfolio</Link>. For an overview, here's my resume:
+If you want to see details about some projects that I've worked on, see <Link to='/portfolio'>my portfolio</Link>. For an overview, here's my resume:
 
 <Resume/>
