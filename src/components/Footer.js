@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from '@reach/router';
 import { createUseStyles } from 'react-jss';
 import { EmailIcon, GitHubIcon, LinkedInIcon } from './social_icons';
 

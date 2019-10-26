@@ -153,7 +153,7 @@ export const components = {
     color: '#009cd3',
     textDecoration: 'none',
   })),
-  Link: (() => { // Internal links, use the reach router.
+  link: (() => { // Internal links, use the reach router.
     const useStyles = createUseStyles({
       elt: {
         color: '#009cd3',
@@ -165,6 +165,8 @@ export const components = {
       return (<Link className={elt} {...props}/>)
     }
   })(),
+  A: (props) => React.createElement('a', props), // unstyled external link
+  Link, // unstyled internal link
   img: styledElt('img', theme => ({
     marginTop: theme.sizing(8),
     marginBottom: theme.sizing(8),

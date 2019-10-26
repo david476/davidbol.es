@@ -15,15 +15,15 @@ export default function Article({children, meta: {title, headTitle}}) {
   return (
     <Sizer component={props => React.createElement('article', props)}>
       <header>
+        {headTitle || (headTitle == undefined && title) ? (
+          <Head>
+            <title>David Boles: {headTitle || title}</title>
+          </Head>
+        ) : null}
         {title ? (
-          <>
-            <Head>
-              <title>David Boles: {headTitle || title}</title>
-            </Head>
-            <div className={titleClass}>
-              {title}
-            </div>
-          </>
+          <div className={titleClass}>
+            {title}
+          </div>
         ) : null}
       </header>
       {children}
