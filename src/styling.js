@@ -177,7 +177,36 @@ export const components = {
     height: 'auto',
     maxHeight: '50vh',
     maxWidth: '100%',
-  }))
+  })),
+  YouTube: ({id, ...props}) => {
+    const Container = styledElt('div', theme => ({
+      marginTop: theme.sizing(8),
+      marginBottom: theme.sizing(8),
+      marginLeft: 'auto',
+      marginRight: 'auto',
+      display: 'block',
+      maxHeight: '50vh',
+      maxWidth: '100%',
+      position: 'relative',
+      paddingTop: '56.25%',
+    }))
+
+    const IFrame = styledElt('iframe', theme => ({
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      bottom: 0,
+      right: 0,
+      width: '100%',
+      height: '100%',
+    }))
+
+    return (
+      <Container>
+        <IFrame src={`https://www.youtube.com/embed/${id}`} allow="encrypted-media" allowfullscreen="true" {...props}/>
+      </Container>
+    )
+  },
 }
 
 
