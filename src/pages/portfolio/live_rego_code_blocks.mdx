@@ -2,6 +2,64 @@ export const meta = {
   title: 'Live Rego Code Blocks'
 }
 
-https://github.com/open-policy-agent/opa/tree/master/docs/website/scripts/live-blocks
+You can check out the
+[source code](https://github.com/open-policy-agent/opa/tree/master/docs/website/scripts/live-blocks)
+or view them
+[in action](https://www.openpolicyagent.org/docs/latest/policy-language/#the-basics).
 
-https://www.openpolicyagent.org/docs/latest/policy-language/#the-basics
+---
+
+I developed the Rego code block postprocessor with a few key points in mind:
+- **Interactivity** - Rego is not only a domain-specific language but also quite *unsusual*.
+  The team at Styra had identified interacting with examples as a key way to make learning Rego easier;
+  so far they had relied on users following along in a REPL, which was a significant barrier to entry.
+- **Compatibility** - We wanted to maintain the documentation's style of interweaving text with examples
+  and then modifying or extending those examples later on. There also wasn't motivation
+  to alter the current website infrastructure to better support something like this (hence developing a postprocessor
+  that operated on the compiled markdown). Finally, the system had to support multiple versions of the documentation
+  for different releases.
+- **Ease of Use** - The system had to be easy to use for those writing the documentation. A lot of effort was
+  put in to ensuring cross-platform and offline build compatibilities as well as compile-time error checking
+  and reporting.
+- **Speed** - Building the documentation had to be fast for those writing it and the website had to load quickly
+  for those interacting with it. Running all the examples when the page loaded wasn't an option.
+
+Here's what I came up with:
+
+# Authoring
+
+Given the requirement to use existing markdown syntax, I settled on a custom format for code block
+language strings to encode the needed information:
+
+`````
+```live:a/hierarchical/group:type:tag,other_tag,another
+# ... some Rego code ...
+```
+`````
+
+Where `live` is a fixed keyword, `a/hierarchical/group` is a slash-delimited name for the group a block belongs to,
+`type` is one of the four variants of block (e.g. `module` or `output`),
+and the tags provide additional formatting or error checking information. The full documentation for authoring live blocks
+can be found [here](https://github.com/open-policy-agent/opa/tree/master/docs#live-code-blocks).
+
+The hierarchical groups (which tie output blocks to the corresponding inputs) are the most important piece of this syntax;
+they allow examples to expand on previous ones and for everything to be interactive without unnecessary duplication. Many of blocks
+in the page linked above use a single block of shared data (located at the bottom). Updating that single block affects the output
+shown in twenty different places! The words between the code blocks explain these interactions naturally, and restoring
+their initial state takes just the click of a button.
+
+# Building
+
+In order to share as much code as possible from the frontend with the compile-time processor, I wrote it in Javascript as well.
+It uses the newish async/await syntax (woohoo!) to efficiently download and cache all required OPA binary versions and
+evaluate the results that the output blocks should contain. Finally, the client-side JS is compiled, minified, and cached as well
+for all subsequent builds.
+
+# Interacting
+
+When the page loads, the client-side code quickly indexes all of the present examples and then hydrates them with the editor.
+This happens in order of distance from the current viewport; although hydrating the whole page can take several seconds, whatever you're looking
+at is interactive immediately and the page stays responsive. I also took pains to ensure that changes propagate correctly even to blocks that haven't been hydrated yet,
+nothing can be left in an incorrect state. To make those changes, async code is used once again, this time to query the
+Rego evaluation backend (written in Go) to update the outputs when the user changes any of the interactive blocks from
+their initial content.
