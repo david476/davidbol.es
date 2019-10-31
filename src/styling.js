@@ -178,7 +178,8 @@ export const components = {
     maxHeight: '50vh',
     maxWidth: '100%',
   })),
-  YouTube: ({id, ...props}) => {
+  YouTube: ({id, aspectRatio, ...props}) => {
+    //console.log(id, w, h);
     const Container = styledElt('div', theme => ({
       marginTop: theme.sizing(8),
       marginBottom: theme.sizing(8),
@@ -188,7 +189,7 @@ export const components = {
       maxHeight: '50vh',
       maxWidth: '100%',
       position: 'relative',
-      paddingTop: '56.25%',
+      paddingTop: aspectRatio ? `${(aspectRatio[1] / aspectRatio[0]) * 100}%` : '56.25%',
     }))
 
     const IFrame = styledElt('iframe', theme => ({
@@ -203,7 +204,7 @@ export const components = {
 
     return (
       <Container>
-        <IFrame src={`https://www.youtube.com/embed/${id}`} allow="encrypted-media" allowfullscreen="true" {...props}/>
+        <IFrame src={`https://www.youtube.com/embed/${id}`} allow="encrypted-media" allowFullScreen={true} {...props}/>
       </Container>
     )
   },
