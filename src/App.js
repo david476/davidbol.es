@@ -1,21 +1,25 @@
-import React from 'react'
-import { Root, Routes, addPrefetchExcludes } from 'react-static'
-import { Link, Router } from '@reach/router'
-import Styling from './styling'
-import NavBar from './components/NavBar';
+import { createHistory, createMemorySource, LocationProvider, Router } from '@reach/router';
+import React from 'react';
 import { createUseStyles } from 'react-jss';
+import { Root, Routes } from 'react-static';
 import Footer from './components/Footer';
-import Sizer from './containers/Sizer';
+import NavBar from './components/NavBar';
+import Styling from './styling';
 
-const useStyles = createUseStyles(theme => ({
+const history = (typeof window !== 'undefined') ? createHistory(window) : createHistory(createMemorySource())
+
+history.listen((...props) => {
+  console.log(props)
+  const { action } = props[0]
+  if (action !== 'POP') {
+    window.scrollTo(0, 0);
+  }
+})
+
+const useStyles = () => createUseStyles(theme => ({
   outer: {
-    width: '100vw',
-    height: '100vh',
-    overflow: 'hidden',
-  },
-  scroll: {
+    overflowX: 'hidden',
     overflowY: 'auto',
-    height: `calc(100vh - ${theme.sizing.navbar.height}px)`,
   },
   content: {
     width: '100%',
@@ -23,33 +27,34 @@ const useStyles = createUseStyles(theme => ({
   }
 }))
 
-function Body() {
-  const { outer, scroll, content } = useStyles()
-  return (
-    <div className={outer}>
-      <NavBar/>
-      <div className={scroll}>
-        <div className={content}>
-          <Router>
-            <Routes path="*"/>
-          </Router>
-        </div>
-        <Footer/>
-      </div>
-    </div>
-  )
-}
-
-function App() {
+export default function App() {
   return (
     <Root>
-      <React.Suspense fallback={<em>Loading...</em>}>
-        <Styling>
-          <Body/>
-        </Styling>
-      </React.Suspense>
+      <Styling>
+        <React.Suspense fallback={<em>Loading...</em>}>
+          {React.createElement(() => {
+            return (
+              <LocationProvider history={history}>
+                <Router>
+                  {React.createElement(() => {
+                    const { outer, content } = useStyles()
+                  
+                    return (
+                      <div className={outer}>
+                        <NavBar/>
+                        <div className={content}>
+                          <Routes/>
+                        </div>
+                        <Footer/>
+                      </div>
+                    )
+                  }, {path: '*'})}
+                </Router>
+              </LocationProvider>
+            )
+          })}
+        </React.Suspense>
+      </Styling>
     </Root>
   )
 }
-
-export default App
