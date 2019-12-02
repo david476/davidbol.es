@@ -16,7 +16,7 @@ history.listen((...props) => {
   }
 })
 
-const useStyles = () => createUseStyles(theme => ({
+const useStyles = createUseStyles(theme => ({
   outer: {
     overflowX: 'hidden',
     overflowY: 'auto',
