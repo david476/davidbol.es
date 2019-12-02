@@ -11,7 +11,7 @@ import './reset.css'
 
 
 // --- STYLING ---
-const t = {}
+export const t = {}
 
 t.sizing = (f) => (f * 4)
 t.sizing.navbar = {

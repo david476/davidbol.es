@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "@reach/router": "^1.2.1",
+    "@react-pdf/renderer": "^1.6.8",
     "axios": "^0.18.0",
+    "get-stream": "^5.1.0",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-jss": "^10.0.0",
