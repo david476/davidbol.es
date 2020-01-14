@@ -54,4 +54,9 @@ hr { display:block; height:1px; border:0; border-top:1px solid #ccc; margin:1em 
 
 input, select { vertical-align:middle; }
 
+@page {
+  size: auto;  /* auto is the initial value */
+  margin: 0mm; /* this affects the margin in the printer settings */
+}
+
 /* END RESET CSS */

@@ -28,6 +28,9 @@ t.sizing.headings = (i) => {
     fontSize: t.sizing(size),
   }
 }
+t.sizing.content = {
+  fontSize: t.sizing(5),
+}
 
 t.fonts = {
   navigation: {
@@ -40,7 +43,7 @@ t.fonts = {
   },
   content: {
     fontFamily: ['Lato', 'sans-serif'],
-    fontWeight: '400' // TODO verify bold uses 700 correctly
+    fontWeight: '400'
   },
   monospace: {
     fontFamily: ['Ubuntu Mono', 'monospace'],
@@ -51,8 +54,15 @@ t.fonts = {
 t.colors = {
   navigation: {
     backgroundColor: '#333',
-    color: '#fff'
-  }
+    color: '#fff',
+  },
+  accent: '#009cd3',
+  headings: {
+    color: '#000',
+  },
+  content: {
+    color: '#333',
+  },
 }
 
 
@@ -68,14 +78,16 @@ function styledElt(type, styles) {
 export const components = {
   wrapper: Article,
   p: styledElt('p', theme => ({
-    marginTop: theme.sizing(4),
+    //marginTop: theme.sizing(4),
     marginBottom: theme.sizing(4),
-    fontSize: theme.sizing(5),
-    ...theme.fonts.content
+    ...theme.fonts.content,
+    ...theme.colors.content,
+    ...theme.sizing.content,
   })),
   ...Object.assign(...Array.from({length: 6}, (_, i) => ({[`h${i+1}`]: styledElt(`h${i+1}`, theme => ({
       ...theme.sizing.headings(i+1),
-      ...theme.fonts.headings
+      ...theme.fonts.headings,
+      ...theme.colors.headings,
     }
   ))}))),
   hr: styledElt('hr', theme => ({
@@ -88,30 +100,28 @@ export const components = {
     paddingRight: theme.sizing(4),
     backgroundColor: '#eee',
     overflow: 'auto',
-    marginTop: theme.sizing(8),
     marginBottom: theme.sizing(8),
   })),
   ul: styledElt('ul', theme => ({
-    marginTop: theme.sizing(4),
     marginBottom: theme.sizing(4),
     paddingLeft: theme.sizing(6),
   })),
   ol: styledElt('ol', theme => ({
-    marginTop: theme.sizing(4),
     marginBottom: theme.sizing(4),
     paddingLeft: theme.sizing(6),
   })),
   li: styledElt('li', theme => ({
-    fontSize: theme.sizing(5),
-    ...theme.fonts.content
+    ...theme.fonts.content,
+    ...theme.colors.content,
+    ...theme.sizing.content,
   })),
   table: ((props) => {
     const Outer = styledElt('div', theme => ({
-      marginTop: theme.sizing(8),
       marginBottom: theme.sizing(8),
       overflowX: 'auto',
-      fontSize: theme.sizing(5),
-      ...theme.fonts.content
+      ...theme.fonts.content,
+      ...theme.colors.content,
+      ...theme.sizing.content,
     }))
     const Table = styledElt('table', theme => ({
       marginLeft: 'auto',
@@ -127,10 +137,10 @@ export const components = {
     border: ['1px', 'solid', '#ccc'],
     padding: theme.sizing(2),
     ...theme.fonts.headings,
+    ...theme.colors.headings,
     backgroundColor: '#eee',
   })),
   pre: styledElt('pre', theme => ({
-    marginTop: theme.sizing(8),
     marginBottom: theme.sizing(8),
     padding: theme.sizing(4),
     backgroundColor: '#eee',
@@ -138,28 +148,30 @@ export const components = {
     overflowX: 'auto',
   })),
   code: styledElt('code', theme => ({
-    fontSize: theme.sizing(5),
     ...theme.fonts.monospace,
+    ...theme.colors.content,// TODO different?
+    ...theme.sizing.content,
     paddingRight: theme.sizing(4), // Fixes padding when h-scrolling
   })),
   inlineCode: styledElt('code', theme => ({
-    fontSize: theme.sizing(5),
     ...theme.fonts.monospace,
+    ...theme.colors.content,// TODO different?
+    ...theme.sizing.content,
     padding: [theme.sizing(0.5), theme.sizing(2)],
     backgroundColor: '#eee',
     boxShadow: [0, 0, 4, '#aaa', 'inset'],
   })),
   a: styledElt('a', theme => ({
-    color: '#009cd3',
+    color: theme.colors.accent,
     textDecoration: 'none',
   })),
   link: (() => { // Internal links, use the reach router.
-    const useStyles = createUseStyles({
+    const useStyles = createUseStyles(theme => ({
       elt: {
-        color: '#009cd3',
+        color: theme.colors.accent,
         textDecoration: 'none',
       },
-    })
+    }))
     return (props) => {
       const { elt } = useStyles()
       return (<Link className={elt} {...props}/>)
@@ -168,7 +180,6 @@ export const components = {
   A: (props) => React.createElement('a', props), // unstyled external link
   Link, // unstyled internal link
   img: styledElt('img', theme => ({
-    marginTop: theme.sizing(8),
     marginBottom: theme.sizing(8),
     marginLeft: 'auto',
     marginRight: 'auto',
@@ -181,7 +192,6 @@ export const components = {
   YouTube: ({id, aspectRatio, ...props}) => {
     //console.log(id, w, h);
     const Container = styledElt('div', theme => ({
-      marginTop: theme.sizing(8),
       marginBottom: theme.sizing(8),
       marginLeft: 'auto',
       marginRight: 'auto',

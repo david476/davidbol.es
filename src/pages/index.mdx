@@ -1,43 +1,60 @@
-import { useRef } from 'react';
+import { useRef, useState, useCallback, useEffect } from 'react';
 import { createUseStyles } from 'react-jss';
+import useObserveResize from '../hooks/useObserveResize';
 
 export const meta = {
   title: `Hi! I'm David.`,
   headTitle: 'About'
 }
 
-export const Resume = (() => {
+<>{/*
+--- ALTERNATE HTML VERSION ---
+export const ResumeContainer = (() => {
   const useStyles = createUseStyles(theme => ({
     containerClass: {
-      width: '100%',
-      paddingTop: `calc(${100 * 11 / 8.5}% + 12px)`,
-      position: 'relative',
-      marginTop: theme.sizing(8),
-      marginBottom: theme.sizing(8),
-    },
-    imgClass: {
-      position: 'absolute',
-      width: '100%',
-      height: '100%',
-      top: 0,
-      right: 0,
-      bottom: 0,
-      left: 0,
       boxShadow: [0, 0, theme.sizing(1), theme.colors.navigation.backgroundColor],
+      width: '100%',
+    },
+    resumeClass: {
+      transformOrigin: '0 0',
     },
   }))
   return () => {
-    const {containerClass, imgClass} = useStyles()
+    const {containerClass, resumeClass} = useStyles()
+    const [scaleFactor, setScaleFactor] = useState(0)
+    const containerRefCallback = useObserveResize(useCallback((entries) => 
+      setScaleFactor(
+        (entries[0].contentBoxSize ? entries[0].contentBoxSize.inlineSize : entries[0].contentRect.width)
+        /(8.5*96))))
     return (
-      <div className={containerClass}>
-        <a href='/resume.pdf' target="_blank" rel="noopener noreferrer">
-          <img src='/resume.png' className={imgClass}/>
-        </a>
+      <div className={containerClass} ref={containerRefCallback} style={{height: scaleFactor*11*96}}>
+        <A href='/resume.pdf'>
+          <Resume className={resumeClass} style={{transform: `scale(${scaleFactor})`}}/>
+        </A>
       </div>
     )
   }
 })();
+*/}</>
 
-If you want to see details about some projects that I've worked on, check out <link to='/portfolio'>my portfolio</link>. If you just want an overview, here's my resume:
+export const Resume = (() => {
+  const useStyles = createUseStyles(theme => ({
+    png: {
+      boxShadow: [0, 0, theme.sizing(1), theme.colors.navigation.backgroundColor],
+      width: '100%',
+    },
+  }))
+  return () => {
+    const {png} = useStyles()
+    return (
+      <A href='/resume.pdf'>
+        <img className={png} src='/resume.png' alt='my resume'/>
+      </A>
+    )
+  }
+})();
 
-<Resume/>
+
+If you want to see details about some projects that I've worked on, check out my <link to='/portfolio'>portfolio</link>. If you just want an overview, here's my <link to='/resume.pdf'>resume</link>:
+
+<Resume/> 
