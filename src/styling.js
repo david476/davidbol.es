@@ -180,6 +180,7 @@ export const components = {
   A: (props) => React.createElement('a', props), // unstyled external link
   Link, // unstyled internal link
   img: styledElt('img', theme => ({
+    marginTop: theme.sizing(8),
     marginBottom: theme.sizing(8),
     marginLeft: 'auto',
     marginRight: 'auto',
@@ -192,6 +193,7 @@ export const components = {
   YouTube: ({id, aspectRatio, ...props}) => {
     //console.log(id, w, h);
     const Container = styledElt('div', theme => ({
+      marginTop: theme.sizing(8),
       marginBottom: theme.sizing(8),
       marginLeft: 'auto',
       marginRight: 'auto',

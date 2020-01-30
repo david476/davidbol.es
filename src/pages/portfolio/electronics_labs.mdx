@@ -1,0 +1,34 @@
+export const meta = {
+  title: 'Electronics Labs'
+}
+
+# *Digital Electronics*
+Most recently, I completed a course on digital electronics which involved designing and building several circuits in lab.
+
+## 4-Bit Successive Approximation ADC
+Built out of nothing more complicated than shift registers, this ADC uses a R-2R ladder DAC and a comparator to guess a signal's voltage, halving the range it could be in each time.
+
+![successive approximation adc](/portfolio/electronics_labs/sa_adc_corner.jpg)
+
+The coolest part of this design is definitely the DAC output waveform:
+
+<YouTube id='Yh9w9gHZrRc'/>
+
+## 5-Bit Dual-Slope ADC
+This design uses a CPLD to control the circuit. It first integrates the signal using an op-amp for a fixed length of time and then integrates a reference voltage until the integrator output returns to 0. The ratio between the times spent integrating gives you the ratio between the voltages. It's much slower than other variants but ends up being simpler!
+
+![dual slope adc](/portfolio/electronics_labs/ds_adc_top.jpg)
+
+<YouTube id='de4B5sV05dc'/>
+
+## FPGAs
+In addition to using CPLDs in circuits, I used FPGAs for some more complicated systems including a 4-voice music synthesizer using pulse chain frequency generators, parts of a RISC processor, and this multiplexed display.
+
+<YouTube id='SIyeBdJVU6Y'/>
+
+# AM Transmitter
+I only captured one lab from my *Circuits and Signals* class but it was the most interesting—an AM transmitter! The circuit uses an electret microphone, an audio pre-amp, an analog multiplier to modulate the carrier, and a final op-amp to drive the antenna with associated matching network:
+
+![AM transmitter](/portfolio/electronics_labs/am_transmitter.jpg)
+
+<YouTube id='TzKaNXI1d2A'/>
