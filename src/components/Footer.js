@@ -42,7 +42,7 @@ export default function Footer(props) {
       <div className={pad}/>
       <a href='https://github.com/david-boles/'className={link} target="_blank" rel="noopener noreferrer"><GitHubIcon className={icon}/></a>
       <div className={pad}/>
-      <a href='https://www.linkedin.com/in/david-e-boles/'className={link} target="_blank" rel="noopener noreferrer"><LinkedInIcon className={icon}/></a>
+      <a href='https://www.linkedin.com/in/david-b-1a4372133/'className={link} target="_blank" rel="noopener noreferrer"><LinkedInIcon className={icon}/></a>
     </nav>
   )
 }
