@@ -3,6 +3,13 @@ import React from 'react';
 import { createUseStyles } from "react-jss";
 import { components } from '../styling';
 
+/**
+ * After changing, print to a PDF and save to `/public/resume.pdf`.
+ * If necessary, can export to ledger (11x17) and crop:
+ * 
+ * pdfjam --trim '0in 6in 2.5in 0in' --clip true resume-new.pdf --outfile resume.pdf
+ */
+
 const scaleFactor = 1.45;
 
 const useStyles = createUseStyles(theme => ({
@@ -59,6 +66,9 @@ const useStyles = createUseStyles(theme => ({
     marginTop: theme.sizing(4),
     marginBottom: theme.sizing(1.5),
   },
+  headerBold: {
+    fontWeight: 400,
+  },
   date: {
     ...theme.fonts.navigation,
     fontSize: theme.sizing(4),
@@ -70,12 +80,12 @@ const useStyles = createUseStyles(theme => ({
 }))
 
 function ResumeContent() {
-  const {container, head, contact, body, misc, name, synopsis, section, header, date, detail} = useStyles()
+  const {container, head, contact, body, misc, name, synopsis, section, header, headerBold, date, detail} = useStyles()
   return (
     <div className={container}>
       <div className={head}>
         <div className={name}>David Boles</div>
-        <div className={synopsis}><i>University student passionate about designing complex systems<br/>across engineering disciplines.</i></div>
+        <div className={synopsis}><i>University junior passionate about robotics and embedded systems, seeking to<br/>help engineer a more sustainable future.</i></div>
       </div>
       <div className={contact}>
         {false?
@@ -98,47 +108,62 @@ function ResumeContent() {
         <br/>
         (415) 825-2464
         <br/>
-        me@davidbol.es
+        <a href='mailto:me@davidbol.es'>me@davidbol.es</a>
         <br/>
-        www.davidbol.es/portfolio
+        <a href='https://www.davidbol.es/portfolio'>www.davidbol.es/portfolio</a>
       </div>
       <div className={body}>
 
         <div className={section}>Education</div>
 
         <div className={header}>
-          <b>Brown University</b><i>—3.85 GPA</i>
+          <b className={headerBold}>Brown University</b><i>—3.9 GPA</i>
           <div className={date}>September 2018–Present</div>
         </div>
         <components.ul>
           <components.li>
-            Topics in Collaborative Robotics <i>(in progress)</i>
+            Machine Learning<span className={detail}>—planned for Spring 2021</span>
           </components.li>
           <components.li>
-            Sensors and Actuators for Real Systems <i>(in progress)</i>
+            Control Systems Engineering<span className={detail}>—planned for Spring 2021</span>
+          </components.li>
+          <components.li>
+            Probabilistic Methods in Computer Science<span className={detail}>—planned for Spring 2021</span>
+          </components.li>
+          <components.li>
+            Digital Signal Processing
+          </components.li>
+          <components.li>
+            Linear System Analysis
+          </components.li>
+          <components.li>
+            Logic for Systems
+          </components.li>
+          <components.li>
+            Topics in Collaborative Robotics
           </components.li>
           <components.li>
             Introduction to Robotics<span className={detail}>—PID, Kalman Filters, and SLAM</span>
           </components.li>
           <components.li>
-            Introduction to Software Engineering
+            Sensors and Actuators for Real Systems
           </components.li>
           <components.li>
             Digital Electronics Systems Design
           </components.li>
           <components.li>
-            Electrical Circuits and Signals
-          </components.li>
-          <components.li>
             Dynamics and Vibrations
           </components.li>
-          <components.li>
-            Applied Ordinary Differential Equations
-          </components.li>
+          
+
+          {/* <components.li>
+            Design and Implementation of Programming Languages
+          </components.li> */}
+
         </components.ul>
 
-        <div className={header}>
-          <b>Design​ ​Tech​ ​High​ ​School and Community Colleges</b><i>—4.0{/*48 weighted*/} GPA</i>
+        {/* <div className={header}>
+          <b>Design​ ​Tech​ ​High​ ​School and Community Colleges</b><i>—4.0{/*48 weighted* GPA</i>
           <div className={date}>August 2014–June 2018</div>
         </div>
         <components.ul>
@@ -148,61 +173,63 @@ function ResumeContent() {
           <components.li>
             Linux Administration
           </components.li>
-          <components.li>
-            Mobile Web App Development
-          </components.li>
-          <components.li>
-            Linear Algebra and Calculus I-III
-          </components.li>
-        </components.ul>
+        </components.ul> */}
 
         <div className={section}>Experience</div>
 
         <div className={header}>
-          <b>Brown Space Engineering</b>—<i>Technical Lead</i>
+          <b className={headerBold}>Brown Space Engineering</b>—<i>Software Lead</i>
           <div className={date}>September 2018–Present</div>
         </div>
         <components.ul>
           <components.li>
-            Oversees the from-scratch design, fabrication, and testing of a low-cost satellite with motorized arm, camera, and S-band downlink by a 70-student undergraduate club.
+            Trains new members and facilitates software development for our next satellite.
           </components.li>
           <components.li>
             Experiments with development guardrails for FreeRTOS-based firmware.
           </components.li>
+          <components.li>
+            Migrated our projects from Atmel Studio to an open source toolchain based on OpenOCD and Arm GCC.
+          </components.li>
         </components.ul>
 
         <div className={header}>
-          <b>Styra</b><i>—Software Development Intern</i>
+          <b className={headerBold}>Duckietown Foundation</b>—<i>Research Assistant</i>
+          <div className={date}>June 2020–September 2020</div>
+        </div>
+        <components.ul>
+          <components.li>
+            Adapted a college robotics course for use in high schools including validating custom mass-manufactured quadcopter kits as well as overseeing content writing and teacher training. The finished course was used by several schools and over 150 students in Fall 2020.
+          </components.li>
+          <components.li>
+            Completed preliminary user studies, requirements drafting, and component validation for the next iteration of kits.
+          </components.li>
+        </components.ul>
+
+        <div className={header}>
+          <b className={headerBold}>Styra</b><i>—Software Development Intern</i>
           <div className={date}>June 2019–August 2019</div>
         </div>
         <components.ul>
           <components.li>
             Created a configurable, markdown-compatible system for
-            embedding live, interdependent blocks of code into public-facing
+            embedding interdependent blocks of live, interactive code into public-facing
             documentation.
-          </components.li>
-          <components.li>
-            Worked with engineers and designers to implement features
-            in both the product frontend and backend.
           </components.li>
         </components.ul>
 
         <div className={header}>
-          <b>Oracle Education Foundation</b><i>—Intern</i>
+          <b className={headerBold}>Oracle Education Foundation</b><i>—Intern</i>
           <div className={date}>March 2016–June 2018</div>
         </div>
         <components.ul>
-          <components.li>
-            Guided groups of students in designing human-centered solutions
-            using electronics and programming.
-          </components.li>
           <components.li>
             Developed a new Internet-of-Things course in collaboration with Program Managers.
           </components.li>
         </components.ul>
 
         <div className={header}>
-          <b>B.R.E.A.D. FRC Robotics Team</b><i>—Robot Division Lead</i>
+          <b className={headerBold}>B.R.E.A.D. FRC Robotics Team</b><i>—Robot Division Lead</i>
           <div className={date}>September 2015–June 2018</div>
         </div>
         <components.ul>
@@ -212,7 +239,7 @@ function ResumeContent() {
             80+ pound robots.
           </components.li>
           <components.li>
-            Developed a modular robot control architecture written in Java.
+            Developed a modular robot control architecture for Java.
           </components.li>
         </components.ul>
         
@@ -228,18 +255,6 @@ function ResumeContent() {
           Software Engineering
           <components.ul>
             <components.li>
-              Javascript, React
-            </components.li>
-            <components.li>
-              HTML, CSS
-            </components.li>
-            <components.li>
-              Go
-            </components.li>
-            <components.li>
-              Java
-            </components.li>
-            <components.li>
               C
             </components.li>
             <components.li>
@@ -249,7 +264,31 @@ function ResumeContent() {
               MATLAB
             </components.li>
             <components.li>
+              Java
+            </components.li>
+            <components.li>
+              Go
+            </components.li>
+            <components.li>
+              Javascript, React
+            </components.li>
+            <components.li>
               Racket, Plait
+            </components.li>
+            <components.li>
+              Forge, Alloy
+            </components.li>
+            <components.li>
+              Promela (SPIN)
+            </components.li>
+            <components.li>
+              Git
+            </components.li>
+            <components.li>
+              Linux Administration
+            </components.li>
+            <components.li>
+              Network Configuration
             </components.li>
           </components.ul>
         </components.p>
@@ -270,17 +309,21 @@ function ResumeContent() {
           Rapid Prototyping
           <components.ul>
             <components.li>
-              3D Printers
+              Soldering<br/>
+              (incl. surface mount)
             </components.li>
             <components.li>
-              Laser Cutters
+              3D Printing
             </components.li>
             <components.li>
-              CNC Mills and Routers
+              Laser Cutting
+            </components.li>
+            <components.li>
+              CNC Milling and Routing
             </components.li>
           </components.ul>
         </components.p>
-
+{/* 
         <components.p>
           Networking
           <components.ul>
@@ -291,13 +334,13 @@ function ResumeContent() {
               Hardware Configuration
             </components.li>
           </components.ul>
-        </components.p>
+        </components.p> */}
 
 
         <div className={section}>Awards</div>
         
         <div className={header}>
-          <b>Rookie All-Star Award</b>
+          <b className={headerBold}>Rookie All-Star Award</b>
         </div>
         <components.p>
           Awarded to B.R.E.A.D. at the Silicon Valley FIRST Robotics Competition Regional, 2016
@@ -313,16 +356,16 @@ function ResumeContent() {
 
         <div className={section}>Other Interests</div>
         <components.p>
-          Ceramics
+          Food Fermentation
         </components.p>
         <components.p>
-          Cooking
+          Hydroponic Gardening
         </components.p>
         <components.p>
           Knitting
         </components.p>
         <components.p>
-          Philosophy
+          Ceramics
         </components.p>
       </div>
     </div>
