@@ -4,10 +4,13 @@ import { createUseStyles } from "react-jss";
 import { components } from '../styling';
 
 /**
- * After changing, print to a PDF and save to `/public/resume.pdf`.
- * If necessary, can export to ledger (11x17) and crop:
+ * After changing, commit and push to develop, wait for Netlify to update,
+ * and then run `npm run update-resume` to update the static pdf and image files.
  * 
- * pdfjam --trim '0in 6in 2.5in 0in' --clip true resume-new.pdf --outfile resume.pdf
+ * You can also run `npm run update-resume dry` to avoid using API credits. The result
+ * will look the same but the PDF may still include a cropped out watermark.
+ * 
+ * It's done this way to make sure characters aren't being merged into single glyphs (specifically ft, possibly others).
  */
 
 const scaleFactor = 1.45;
