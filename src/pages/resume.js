@@ -21,7 +21,7 @@ const useStyles = createUseStyles(theme => ({
     gridTemplateColumns: '1fr 262px',
     gridTemplateRows: 'auto 1fr',
     gridColumnGap: theme.sizing(16),
-    padding: [theme.sizing(16), theme.sizing(16), theme.sizing(16), theme.sizing(16)],
+    padding: [theme.sizing(12), theme.sizing(16), theme.sizing(12), theme.sizing(16)],
   },
   head: {
     gridRow: 1,
@@ -124,14 +124,18 @@ function ResumeContent() {
           <div className={date}>September 2018–Present</div>
         </div>
         <components.ul>
+          {false ? 
+            <components.li>
+              Plants, Food, and People<span className={detail}>—planned for Spring 2021</span>
+            </components.li>
+          :
+            null
+          }
           <components.li>
             Machine Learning<span className={detail}>—planned for Spring 2021</span>
           </components.li>
           <components.li>
             Control Systems Engineering<span className={detail}>—planned for Spring 2021</span>
-          </components.li>
-          <components.li>
-            Probabilistic Methods in Computer Science<span className={detail}>—planned for Spring 2021</span>
           </components.li>
           <components.li>
             Digital Signal Processing
@@ -140,27 +144,31 @@ function ResumeContent() {
             Linear System Analysis
           </components.li>
           <components.li>
-            Logic for Systems
-          </components.li>
-          <components.li>
-            Topics in Collaborative Robotics
+            Sensors and Actuators for Real Systems
           </components.li>
           <components.li>
             Introduction to Robotics<span className={detail}>—PID, Kalman Filters, and SLAM</span>
           </components.li>
           <components.li>
-            Sensors and Actuators for Real Systems
+            Topics in Collaborative Robotics
           </components.li>
           <components.li>
-            Digital Electronics Systems Design
+            Design and Implementation of Programming Languages
           </components.li>
           <components.li>
-            Dynamics and Vibrations
+            Logic for Systems
           </components.li>
-          
+          <components.li>
+            Software Engineering
+          </components.li>
+
 
           {/* <components.li>
-            Design and Implementation of Programming Languages
+            Digital Electronics Systems Design
+          </components.li> */}
+
+          {/* <components.li>
+            Dynamics and Vibrations
           </components.li> */}
 
         </components.ul>
@@ -229,6 +237,9 @@ function ResumeContent() {
           <components.li>
             Developed a new Internet-of-Things course in collaboration with Program Managers.
           </components.li>
+          <components.li>
+            Simultaneously supported 6-8 groups of students in designing human-centered solutions using embedded systems.
+          </components.li>
         </components.ul>
 
         <div className={header}>
@@ -242,17 +253,13 @@ function ResumeContent() {
             80+ pound robots.
           </components.li>
           <components.li>
-            Developed a modular robot control architecture for Java.
+            Developed a modular, semi-declarative, lazily-evaluated robot control architecture for Java.
           </components.li>
         </components.ul>
         
       </div>
       <div className={misc}>
         <div className={section}>Skills</div>
-
-        <components.p>
-          User-Centered Design
-        </components.p>
 
         <components.p>
           Software Engineering
@@ -325,6 +332,10 @@ function ResumeContent() {
               CNC Milling and Routing
             </components.li>
           </components.ul>
+        </components.p>
+
+        <components.p>
+          User-Centered Design
         </components.p>
 {/* 
         <components.p>
