@@ -132,6 +132,9 @@ function ResumeContent() {
             null
           }
           <components.li>
+            Plants, Food, and People<span className={detail}>—Plant Selection, Breeding, Cultivation, and Sustainability</span>
+          </components.li>
+          <components.li>
             Machine Learning<span className={detail}>—planned for Spring 2021</span>
           </components.li>
           <components.li>
@@ -151,9 +154,6 @@ function ResumeContent() {
           </components.li>
           <components.li>
             Topics in Collaborative Robotics
-          </components.li>
-          <components.li>
-            Design and Implementation of Programming Languages
           </components.li>
           <components.li>
             Logic for Systems
